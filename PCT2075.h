@@ -29,12 +29,15 @@
 in defined degrees system*/
 /* Note: this function should not be called immediately after POR or wake-up.
 The first valid value will be in temperature registr after 28ms*/
+/* param: device_addr: sensors i2c bus addres*/
 float PTC2075readTemperature(uint8_t device_addr);
 
-// Puts device into shutdown mode
+/* Puts device into shutdown mode*/
+/* param: device_addr: sensors i2c bus addres*/
 void PTC2075shutDown(uint8_t device_addr);
 
-// Puts device into shutdown mode
+/* Puts device into shutdown mode*/
+/* param: device_addr: sensors i2c bus addres*/
 void PTC2075wakeUp(uint8_t device_addr);
 
 
