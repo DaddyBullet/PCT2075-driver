@@ -40,7 +40,14 @@ void PTC2075shutDown(uint8_t device_addr);
 /* param: device_addr: sensors i2c bus addres*/
 void PTC2075wakeUp(uint8_t device_addr);
 
-
+/* param: device_addr: sensors i2c bus addres*/
+/* param: pointer: should be one of:
+          PCT2075_TEMP_REG
+          PCT2075_CONF_REG
+          PCT2075_THYST_REG
+          PCT2075_TOS_REG
+          PCT2075_TIDLE_REG
+*/
 void PTC2075writeByte(uint8_t device_addr, uint8_t pointer, uint8_t data_byte);
 uint8_t PTC2075readByte(uint8_t device_addr, uint8_t pointer);
 void PTC2075writeWord(uint8_t device_addr, uint8_t pointer, uint16_t data_word);
