@@ -11,4 +11,4 @@ Eventualy I will implement all the functionality but now you can:
   * Shut it down 
   * Wake it up
 
-Btw i didn't test this code yet
+This code are tested with Nuvoton NANO130SE3BN
