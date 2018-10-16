@@ -4,7 +4,7 @@ float PCT2075readTemperature(uint8_t device_addr)
 {
 	float result_temperature = 85;
   // Reading the temerature regiser
-  int16_t temp_word = (int16_t)PTC2075readWord(device_addr, PCT2075_TEMP_REG);
+  int16_t temp_word = (int16_t)PCT2075readWord(device_addr, PCT2075_TEMP_REG);
 	temp_word >>= 5;
 
 	// Make temperature data true negative if it is
@@ -21,25 +21,25 @@ float PCT2075readTemperature(uint8_t device_addr)
 	return result_temperature;
 }
 
-void PTC2075shutDown(uint8_t device_addr)
+void PCT2075shutDown(uint8_t device_addr)
 {
 	uint8_t config = 0;
-	config = PTC2075readByte(device_addr, PCT2075_CONF_REG);
+	config = PCT2075readByte(device_addr, PCT2075_CONF_REG);
 	config |= PCT2075_OS_SHUTDOWN_MASK;
-	PTC2075writeByte(device_addr, PCT2075_CONF_REG, config);
+	PCT2075writeByte(device_addr, PCT2075_CONF_REG, config);
 	return;
 }
 
-void PTC2075wakeUp(uint8_t device_addr)
+void PCT2075wakeUp(uint8_t device_addr)
 {
 	uint8_t config = 0;
-	config = PTC2075readByte(device_addr, PCT2075_CONF_REG);
+	config = PCT2075readByte(device_addr, PCT2075_CONF_REG);
 	config &= ~PCT2075_OS_SHUTDOWN_MASK;
-	PTC2075writeByte(device_addr, PCT2075_CONF_REG, config);
+	PCT2075writeByte(device_addr, PCT2075_CONF_REG, config);
 	return;
 }
 
-void PTC2075writeByte(uint8_t device_addr, uint8_t pointer, uint8_t data_byte)
+void PCT2075writeByte(uint8_t device_addr, uint8_t pointer, uint8_t data_byte)
 {
   /*
     TODO: Write your device specific i2c comunication
@@ -47,7 +47,7 @@ void PTC2075writeByte(uint8_t device_addr, uint8_t pointer, uint8_t data_byte)
 	return;
 }
 
-uint8_t PTC2075readByte(uint8_t device_addr, uint8_t pointer)
+uint8_t PCT2075readByte(uint8_t device_addr, uint8_t pointer)
 {
 	uint8_t retval = 0xFF;
   /*
@@ -56,7 +56,7 @@ uint8_t PTC2075readByte(uint8_t device_addr, uint8_t pointer)
 	return retval;
 }
 
-void PTC2075writeWord(uint8_t device_addr, uint8_t pointer, uint16_t data_word)
+void PCT2075writeWord(uint8_t device_addr, uint8_t pointer, uint16_t data_word)
 {
   /*
     TODO: Write your device specific i2c comunication
@@ -64,7 +64,7 @@ void PTC2075writeWord(uint8_t device_addr, uint8_t pointer, uint16_t data_word)
 	return;
 }
 
-uint16_t PTC2075readWord(uint8_t device_addr, uint8_t pointer)
+uint16_t PCT2075readWord(uint8_t device_addr, uint8_t pointer)
 {
 	uint16_t retval = 0xFFFF;
   /*
